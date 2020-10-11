@@ -15,7 +15,7 @@ function Recipes() {
     async function getRecipeData() {
       try {
         const recipeResponse = await axios.get(
-          `http://starlord.hackerearth.com/recipe`
+          `${process.env.REACT_APP_PROJECT_BACKEND_URL}/fcdata`
         );
 
         setRecipes(recipeResponse.data);
