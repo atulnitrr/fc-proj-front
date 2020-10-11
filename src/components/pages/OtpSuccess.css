@@ -1,0 +1,13 @@
+.otps-w {
+  display: grid;
+  background-color: var(--success-color);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.otps-w p {
+  font-size: 29px;
+  color: #fff;
+  letter-spacing: 1.3px;
+}

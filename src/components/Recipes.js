@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import SIngleRecipe from "./SIngleRecipe";
 import "./Recipes.css";
+import RecipeContext from "../context/RecipeContext";
+import CreditCardDetail from "./models/CreditCardDetail";
+import OtpModel from "./models/OtpModel";
 
 function Recipes() {
+  const { recipeState, recipeDispaptch } = useContext(RecipeContext);
+
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -24,11 +29,33 @@ function Recipes() {
   }, []);
 
   return (
-    <div className="rc-top-c">
-      {recipes.map((recipe) => {
-        return <SIngleRecipe key={recipe.id} recipe={recipe}></SIngleRecipe>;
-      })}
-    </div>
+    <>
+      {recipeState.creditModel ? (
+        <CreditCardDetail
+          recipe={recipeState.currentRecipe}
+          recipeDispaptch={recipeDispaptch}
+        ></CreditCardDetail>
+      ) : (
+        ""
+      )}
+
+      {recipeState.otpModel ? (
+        <OtpModel recipeDispaptch={recipeDispaptch}></OtpModel>
+      ) : (
+        ""
+      )}
+      <div className="rc-top-c">
+        {recipes.map((recipe) => {
+          return (
+            <SIngleRecipe
+              key={recipe.id}
+              recipe={recipe}
+              recipeDispaptch={recipeDispaptch}
+            ></SIngleRecipe>
+          );
+        })}
+      </div>
+    </>
   );
 }
 

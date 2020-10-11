@@ -1,3 +1,8 @@
+* {
+  --danger-color: #e74c3c;
+  --success-color: #43b581;
+}
+
 .app-container {
   min-height: 100vh;
 }

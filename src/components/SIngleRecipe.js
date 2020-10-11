@@ -1,6 +1,7 @@
 import React from "react";
+import { CURRENT_RECIPE } from "../context/types";
 
-function SIngleRecipe({ recipe }) {
+function SIngleRecipe({ recipe, recipeDispaptch }) {
   //   {
   //     "id":4,
   //     "name":"Guntur chillies",
@@ -13,15 +14,21 @@ function SIngleRecipe({ recipe }) {
   // }
 
   const { name, image, price, description } = recipe;
+  const hanleOnClick = () => {
+    recipeDispaptch({ type: CURRENT_RECIPE, payload: recipe });
+  };
+
   return (
-    <div className="single-recipe-w">
-      <h4>{name}</h4>
-      <div className="img-w">
-        <img src={image} alt={name} />
+    <>
+      <div className="single-recipe-w" onClick={hanleOnClick}>
+        <h4>{name}</h4>
+        <div className="img-w">
+          <img src={image} alt={name} />
+        </div>
+        <p> Price : ${price}</p>
+        <p>{description}</p>
       </div>
-      <p> Price : ${price}</p>
-      <p>{description}</p>
-    </div>
+    </>
   );
 }
 

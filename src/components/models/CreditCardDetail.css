@@ -1,0 +1,47 @@
+.card-detail-w {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 350px;
+  height: 400px;
+  z-index: 1000;
+  padding: 20px;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px 10px seagreen;
+}
+
+.card-detail-w h3 {
+  /* color: #fff; */
+  font-size: 22px;
+  letter-spacing: 1.2px;
+}
+
+.card-detail-w form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-detail-w form > * {
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.card-detail-w button {
+  background-color: var(--success-color);
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+}
+
+.card-detail-w .btn-cancel {
+  background-color: var(--danger-color);
+}
